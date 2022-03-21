@@ -24,7 +24,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         print(searchTextField.text!)
     }
     
-    func 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(searchTextField.text!)
+        return true
+    }
     
 }
 
