@@ -5,11 +5,14 @@
 //  Created by Angela Yu on 01/09/2019.
 //  Copyright © 2019 App Brewery. All rights reserved.
 //
+// API key: 7c76f28176126711c0afd661e413f671
 
 import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
-
+    
+    var weatherManager = WeatherManager()
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -39,7 +42,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        //
+        
+        if let city = searchTextField.text {
+            weatherManager.fetchWeather(cityName: city)
+        }
+        
         searchTextField.text = ""
     }
     
